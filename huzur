@@ -1,0 +1,35 @@
+void main(){
+  var deck = Deck();
+  print(deck.getnumberofcards());
+  for(var card in deck.cards){
+    print('${card.rank} of ${card.suite}');
+  }
+}
+class Deck{
+  List<Card> cards = [];
+  
+  Deck(){
+    var ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack',
+               'Queen', 'King'];
+    var suites = ['Space', 'Diamond', 'Clubs', 'Hearts'];
+    for(var suite in suites){
+      for(var rank in ranks){
+        cards.add(Card(suite, rank));
+      }
+    }
+  var jokerSuites = ['1', '2', '3'];
+  for(var suite in jokerSuites){
+    cards.add(Card(suite, 'joker'));
+  }
+  }
+  int getnumberofcards(){
+    return cards.length;
+  }
+  }
+
+class Card{
+  String suite = "";
+  String rank = "";
+  String name = "";
+  Card(this.suite, this.rank);
+}
